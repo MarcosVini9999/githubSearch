@@ -1,13 +1,17 @@
 import React from "react";
+import Search from "./components/Search/Search";
+import CardUser from "./components/CardUser/CardUser";
 import apiGithub from "./services/apiGithub";
 
-function App() {
+const App = () => {
   const [users, setUsers] = React.useState([]);
-  const fetchData = async () => {
+  const fetchData = async (user) => {
     try {
-      const result = await apiGithub.get(`/users/MarcosVini9999`);
-      setUsers(result.data);
-    } catch {}
+      const result = await apiGithub.get(`/users/${user}`);
+      setUsers(result?.data);
+    } catch {
+      alert("Ocorreu um erro");
+    }
   };
 
   React.useEffect(() => {
@@ -16,9 +20,16 @@ function App() {
 
   return (
     <React.Fragment>
-      <h1>Olá {users.name}</h1>
+      <Search info={fetchData} />
+      {users && (
+        <CardUser
+          avatar={users?.avatar_url}
+          nome={users?.name}
+          user={users?.login}
+        />
+      )}
     </React.Fragment>
   );
-}
+};
 
 export default App;
