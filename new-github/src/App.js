@@ -2,33 +2,38 @@ import React from "react";
 import Search from "./components/Search/Search";
 import CardUser from "./components/CardUser/CardUser";
 import apiGithub from "./services/apiGithub";
+import "./style.css";
 
 const App = () => {
-  const [users, setUsers] = React.useState([]);
-  const fetchData = async (user) => {
-    try {
-      const result = await apiGithub.get(`/users/${user}`);
-      setUsers(result?.data);
-    } catch {
-      alert("Ocorreu um erro");
-    }
+  const [usersData, setUsersData] = React.useState([]);
+  const [user, setUser] = React.useState("MarcosVini9999");
+  const onUserSearchChange = value => {
+    setUser(value);
   };
 
   React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await apiGithub.get(`/users/${user}`);
+        setUsersData(result?.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
     fetchData();
-  }, []);
+  }, [user]);
 
   return (
-    <React.Fragment>
-      <Search info={fetchData} />
-      {users && (
+    <div className="container">
+      <Search onChange={onUserSearchChange} />
+      {usersData && (
         <CardUser
-          avatar={users?.avatar_url}
-          nome={users?.name}
-          user={users?.login}
+          avatar={usersData?.avatar_url}
+          nome={usersData?.name}
+          user={usersData?.login}
         />
       )}
-    </React.Fragment>
+    </div>
   );
 };
 

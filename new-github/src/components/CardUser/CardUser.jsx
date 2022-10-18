@@ -1,11 +1,11 @@
 import React from "react";
 
-const UserCard = (props) => {
+const UserCard = props => {
   return (
     <React.Fragment>
       <h1>Olá, {props.nome}</h1>
       <h4>User: {props.user}</h4>
-      <img src={props.avatar} />
+      <img src={props.avatar} alt="Avatar" />
     </React.Fragment>
   );
 };

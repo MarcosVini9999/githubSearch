@@ -1,1 +1,0 @@
-export { apiGithub } from "./apiGithub";
