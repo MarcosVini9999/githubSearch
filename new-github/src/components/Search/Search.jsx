@@ -1,12 +1,14 @@
 import React from "react";
 import "../../style.css";
-const Search = props => {
+import iconSearch from "../../assets/iconSearch.svg";
+
+const Search = (props) => {
   const [search, setSearch] = React.useState("");
-  const buscaInput = event => {
+  const buscaInput = (event) => {
     setSearch(event.target.value);
   };
 
-  const submitSearch = event => {
+  const submitSearch = (event) => {
     event.preventDefault();
     props.onChange(search);
   };
@@ -14,6 +16,7 @@ const Search = props => {
   return (
     <div className="searchWrapper">
       <form onSubmit={submitSearch}>
+        <img src={iconSearch} alt="search icon" />
         <input
           id="search"
           type="search"

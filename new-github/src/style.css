@@ -1,6 +1,6 @@
 body {
   margin: 0px;
-  padding: 0px;
+  padding: 10px;
   background: #141d2f;
   color: white;
 }
@@ -9,17 +9,129 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5%;
 }
-
 .searchWrapper {
+  background: #1E2A47;
+  padding: 1rem 0.5rem;
+  width: 60%;
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
-  background: red;
-  padding: 2rem 0px;
-  width: 80%;
-  border-radius: 1rem;
+  margin: 2rem;
 }
-.searchWrapper input {
-  width: 100%;
+.searchWrapper form {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  align-items: center;
+}
+.searchWrapper form input {
+  color: white;
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+  flex-grow: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+.searchWrapper form button {
+  color: #fff;
+  background: #60ABFF;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  border: none;
+}
+.cardWrapper {
+  background: #1E2A47;
+  padding: 1rem;
+  width: 60%;
+  display: grid;
+  border-radius: 1rem;
+  grid-template-columns: 1.5fr 3fr 3fr;
+  gap: 3px;
+}
+.avatar {
+  grid-row: 1 / 7;
+  grid-column: 1 / 2;
+}
+.avatar img {
+  border-radius: 50%;
+  width: 8rem;
+  align-self: center;
+}
+.name {
+  grid-row: 1 / 2;
+  grid-column: 2 / 4;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: center;
+}
+.login {
+  grid-row: 2 / 3;
+  grid-column: 2 / 4;
+  margin: 0px;
+  margin: 0px 0px 1rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+.bio {
+  grid-row: 3 / 4;
+  grid-column: 2 / 4;
+  margin: 0px;
+  margin: 0.3rem;
+  display: flex;
+  justify-content: center;
+}
+.gitData {
+  grid-row: 4 / 5;
+  grid-column: 2 / 4;
+  background: #141D2F;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  margin: 10px;
+}
+.location {
+  grid-row: 5 / 6;
+  grid-column: 2 / 3;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.twitter {
+  grid-row: 5 / 6;
+  grid-column: 3 / 4;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.company {
+  grid-row: 6 / 7;
+  grid-column: 2 / 3;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.website {
+  grid-row: 6 / 7;
+  grid-column: 3 / 4;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.location img, .twitter img, .company img, .website img {
+  margin-right: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .cardWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .gitData {
+    min-width: 80%;
+  }
+  .searchWrapper, .cardWrapper {
+    width: 90%;
+  }
 }

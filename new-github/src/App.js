@@ -7,7 +7,7 @@ import "./style.css";
 const App = () => {
   const [usersData, setUsersData] = React.useState([]);
   const [user, setUser] = React.useState("MarcosVini9999");
-  const onUserSearchChange = value => {
+  const onUserSearchChange = (value) => {
     setUser(value);
   };
 
@@ -26,13 +26,7 @@ const App = () => {
   return (
     <div className="container">
       <Search onChange={onUserSearchChange} />
-      {usersData && (
-        <CardUser
-          avatar={usersData?.avatar_url}
-          nome={usersData?.name}
-          user={usersData?.login}
-        />
-      )}
+      {usersData && <CardUser user={usersData} />}
     </div>
   );
 };
