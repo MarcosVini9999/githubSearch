@@ -3,6 +3,7 @@ import website from "../../assets/website.svg";
 import company from "../../assets/company.svg";
 import twitterIcon from "../../assets/twitterIcon.svg";
 import location from "../../assets/location.svg";
+
 function UserCard(props) {
   return (
     <div className="cardWrapper">

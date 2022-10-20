@@ -2,13 +2,12 @@ import React from "react";
 import "../../style.css";
 import iconSearch from "../../assets/iconSearch.svg";
 
-const Search = (props) => {
+const Search = props => {
   const [search, setSearch] = React.useState("");
-  const buscaInput = (event) => {
+  const buscaInput = event => {
     setSearch(event.target.value);
   };
-
-  const submitSearch = (event) => {
+  const submitSearch = event => {
     event.preventDefault();
     props.onChange(search);
   };

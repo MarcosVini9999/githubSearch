@@ -7,7 +7,7 @@ import "./style.css";
 const App = () => {
   const [usersData, setUsersData] = React.useState([]);
   const [user, setUser] = React.useState("MarcosVini9999");
-  const onUserSearchChange = (value) => {
+  const onUserSearchChange = value => {
     setUser(value);
   };
 
